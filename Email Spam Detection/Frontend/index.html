@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Spam Classification Using NLP </title>
+    <link rel="icon" type="image/x-icon" href="tab.png">
+
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #000, #222);
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: sparkle-animation 3s linear infinite;
+        }
+        
+        @keyframes sparkle-animation {
+            0% { transform: translateY(0) translateX(0); opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            width: 800px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        input {
+            width: 100%;
+            padding: 50px 0px;
+            margin: 10px 0px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+            font-size: 16px;
+        }
+        
+        .warning {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+        
+        button {
+            background: #337eff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #2865cd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Email Classification </h2>
+        <input type="text" id="inputBox" placeholder="Type a message...">
+        <p class="warning" id="warning">Spam detected! Please revise your message.</p>
+        <button id="submitBtn">Submit</button>
+    </div>
+
+    
+</body>
+
+<script>
+
+
+        // Generate sparkles dynamically
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.left = Math.random() * window.innerWidth + 'px';
+            sparkle.style.top = Math.random() * window.innerHeight + 'px';
+            sparkle.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 3000);
+        }
+        
+        setInterval(createSparkle, 200);
+</script>
+</html>
