@@ -55,8 +55,7 @@ def predict():
     try:
         data = request.get_json()
         input_text = data.get('mail', '')
-      
-
+        
         if not input_text:
             return jsonify({'error': 'No input provided'}), 400
 
